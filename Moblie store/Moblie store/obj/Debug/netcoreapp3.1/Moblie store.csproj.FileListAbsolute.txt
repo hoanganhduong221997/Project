@@ -1,0 +1,13 @@
+E:\Đồ án 1\Project\Moblie store\Moblie store\bin\Debug\netcoreapp3.1\Moblie store.exe
+E:\Đồ án 1\Project\Moblie store\Moblie store\bin\Debug\netcoreapp3.1\Moblie store.deps.json
+E:\Đồ án 1\Project\Moblie store\Moblie store\bin\Debug\netcoreapp3.1\Moblie store.runtimeconfig.json
+E:\Đồ án 1\Project\Moblie store\Moblie store\bin\Debug\netcoreapp3.1\Moblie store.runtimeconfig.dev.json
+E:\Đồ án 1\Project\Moblie store\Moblie store\bin\Debug\netcoreapp3.1\Moblie store.dll
+E:\Đồ án 1\Project\Moblie store\Moblie store\bin\Debug\netcoreapp3.1\Moblie store.pdb
+E:\Đồ án 1\Project\Moblie store\Moblie store\obj\Debug\netcoreapp3.1\Moblie store.csprojAssemblyReference.cache
+E:\Đồ án 1\Project\Moblie store\Moblie store\obj\Debug\netcoreapp3.1\Moblie store.AssemblyInfoInputs.cache
+E:\Đồ án 1\Project\Moblie store\Moblie store\obj\Debug\netcoreapp3.1\Moblie store.AssemblyInfo.cs
+E:\Đồ án 1\Project\Moblie store\Moblie store\obj\Debug\netcoreapp3.1\Moblie store.csproj.CoreCompileInputs.cache
+E:\Đồ án 1\Project\Moblie store\Moblie store\obj\Debug\netcoreapp3.1\Moblie store.dll
+E:\Đồ án 1\Project\Moblie store\Moblie store\obj\Debug\netcoreapp3.1\Moblie store.pdb
+E:\Đồ án 1\Project\Moblie store\Moblie store\obj\Debug\netcoreapp3.1\Moblie store.genruntimeconfig.cache
