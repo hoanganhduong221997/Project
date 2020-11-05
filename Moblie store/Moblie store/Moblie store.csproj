@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Business\Interface\" />
     <Folder Include="DataAccesLayer\Interface\" />
-    <Folder Include="Utillity\" />
     <Folder Include="Presenation\" />
   </ItemGroup>
 
