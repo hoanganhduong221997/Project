@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Business\Interface\" />
-    <Folder Include="DataAccesLayer\Interface\" />
     <Folder Include="Presenation\" />
   </ItemGroup>
 
