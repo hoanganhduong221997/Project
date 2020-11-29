@@ -6,20 +6,18 @@ namespace Moblie_store.Entities
 {
     public class NhanVien
     {
-        #region Các thành phần dữ liệu
         private int MaNV;
         private string TenNV;
-        private DateTime NgaySinh;
+        private string NgaySinh;
         private string GioiTinh;
         private string DiaChi;
         private string SoDT;
         private string LoaiNV;
-        #endregion
-        #region Các phương thức khởi tạo
+
         public NhanVien()
         {
         }
-        public NhanVien(int manv, string tennv, DateTime ngaysinh, string gt, string diachi, string sdt, string loainv)
+        public NhanVien(int manv, string tennv, string ngaysinh, string gt, string diachi, string sdt, string loainv)
         {
             this.MaNV = manv;
             this.TenNV = tennv;
@@ -40,8 +38,7 @@ namespace Moblie_store.Entities
             this.SoDT = nv.SoDT;
             this.LoaiNV = nv.LoaiNV;
         }
-        #endregion
-        #region Các thuộc tính
+
         public int maNV
         {
             get
@@ -66,7 +63,7 @@ namespace Moblie_store.Entities
                     TenNV = value;
             }
         }
-        public DateTime ngaySinh
+        public string ngaySinh
         {
             get
             {
@@ -74,7 +71,8 @@ namespace Moblie_store.Entities
             }
             set
             {
-                NgaySinh = value;
+                if (value != "")
+                    NgaySinh = value;
             }
         }
         public string gioiTinh
@@ -85,7 +83,7 @@ namespace Moblie_store.Entities
             }
             set
             {
-                if (value.ToLower() == "nam" || value.ToLower() == "nữ")
+                if (value != "")
                     GioiTinh = value;
             }
         }
@@ -125,6 +123,5 @@ namespace Moblie_store.Entities
                     LoaiNV = value;
             }
         }
-        #endregion
     }
 }

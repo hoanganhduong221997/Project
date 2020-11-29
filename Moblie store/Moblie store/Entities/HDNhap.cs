@@ -4,25 +4,29 @@ using System.Text;
 
 namespace Moblie_store.Entities
 {
-    class HDNhap
+    public class HDNhap
     {
-        #region Các thành phần dữ liệu
         private int MaHDN;
-        private string MaNV;
-        private string MaNCC;
-        private DateTime NgayNhap;
+        private int MaNV;
+        private int MaNCC;
+        private int MaDT;
+        private string NgayNhap;
+        private int SoLuong;
+        private double DonGia;
         private double TongTien;
-        #endregion
-        #region Các phương thức khởi tạo
+
         public HDNhap()
         {
         }
-        public HDNhap(int mahdn, string manv, string mancc, DateTime ngaynhap, double tongtien)
+        public HDNhap(int mahdn, int manv, int mancc, int madt, string ngaynhap, int soluong, double dongia, double tongtien)
         {
             this.MaHDN = mahdn;
             this.MaNV = manv;
             this.MaNCC = mancc;
+            this.MaDT = madt;
             this.NgayNhap = ngaynhap;
+            this.SoLuong = soluong;
+            this.DonGia = dongia;
             this.TongTien = tongtien;
         }
         //Phương thức sao chép
@@ -31,11 +35,13 @@ namespace Moblie_store.Entities
             this.MaHDN = hdn.MaHDN;
             this.MaNV = hdn.MaNV;
             this.MaNCC = hdn.MaNCC;
+            this.MaDT = hdn.MaDT;
             this.NgayNhap = hdn.NgayNhap;
+            this.SoLuong = hdn.SoLuong;
+            this.DonGia = hdn.DonGia;
             this.TongTien = hdn.TongTien;
         }
-        #endregion
-        #region Các thuộc tính
+
         public int maHDN
         {
             get
@@ -48,7 +54,7 @@ namespace Moblie_store.Entities
                     MaHDN = value;
             }
         }
-        public string maNV
+        public int maNV
         {
             get
             {
@@ -56,11 +62,11 @@ namespace Moblie_store.Entities
             }
             set
             {
-                if (value != "")
+                if (value > 0)
                     MaNV = value;
             }
         }
-        public string maNCC
+        public int maNCC
         {
             get
             {
@@ -68,11 +74,23 @@ namespace Moblie_store.Entities
             }
             set
             {
-                if (value != "")
+                if (value > 0)
                     MaNCC = value;
             }
         }
-        public DateTime ngayNhap
+        public int maDT
+        {
+            get
+            {
+                return MaDT;
+            }
+            set
+            {
+                if (value > 0)
+                    MaDT = value;
+            }
+        }
+        public string ngayNhap
         {
             get
             {
@@ -80,21 +98,44 @@ namespace Moblie_store.Entities
             }
             set
             {
-                NgayNhap = value;
+                if (value != "")
+                    NgayNhap = value;
+            }
+        }
+        public int soLuong
+        {
+            get
+            {
+                return SoLuong;
+            }
+            set
+            {
+                if (value > 0)
+                    SoLuong = value;
+            }
+        }
+        public double donGia
+        {
+            get
+            {
+                return DonGia;
+            }
+            set
+            {
+                if (value > 0)
+                    DonGia = value;
             }
         }
         public double tongTien
         {
             get
             {
-                return TongTien;
+                return donGia * soLuong;
             }
             set
             {
-                if (value > 0)
-                    TongTien = value;
+                TongTien = value;
             }
         }
-        #endregion
     }
 }

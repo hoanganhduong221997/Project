@@ -5,15 +5,16 @@ using System.IO;
 using Moblie_store.Utility;
 using Moblie_store.Entities;
 using Moblie_store.DataAccessLayer.Interface;
+using System.Text.RegularExpressions;
 
-namespace ComputerStore.DataAccessLayer
+namespace Moblie_store.DataAccessLayer
 {
-    class HDNhapDAL : IHDNhapDAL
+    class NhanVienDAL : INhanVienDAL
     {
-        private string txtfile = "Data/HDNhap.txt";
-        public List<HDNhap> GetData()
+        private string txtfile = "Data/NhanVien.txt";
+        public List<NhanVien> GetData()
         {
-            List<HDNhap> list = new List<HDNhap>();
+            List<NhanVien> list = new List<NhanVien>();
             StreamReader sr = File.OpenText(txtfile);
             string s = sr.ReadLine();
             while (s != null)
@@ -22,14 +23,14 @@ namespace ComputerStore.DataAccessLayer
                 {
                     s = CongCu.CatXau(s);
                     string[] a = s.Split('\t');
-                    list.Add(new HDNhap(int.Parse(a[0]), int.Parse(a[1]), int.Parse(a[2]), int.Parse(a[3]), a[4], int.Parse(a[5]), double.Parse(a[6]), double.Parse(a[7])));
+                    list.Add(new NhanVien(int.Parse(a[0]), a[1], a[2], a[3], a[4], a[5], a[6]));
                 }
                 s = sr.ReadLine();
             }
             sr.Close();
             return list;
         }
-        public int maHDN
+        public int maNV
         {
             get
             {
@@ -53,19 +54,19 @@ namespace ComputerStore.DataAccessLayer
                 }
             }
         }
-        public void Insert(HDNhap hdn)
+        public void Insert(NhanVien nv)
         {
-            int mahdn = maHDN + 1;
+            int manv = maNV + 1;
             StreamWriter sw = File.AppendText(txtfile);
             sw.WriteLine();
-            sw.Write(mahdn + "\t" + hdn.maNV + "\t" + hdn.maNCC + "\t" + hdn.maDT + "\t" + hdn.ngayNhap + "\t" + hdn.soLuong + "\t" + hdn.donGia + "\t" + hdn.tongTien);
+            sw.Write(manv + "\t" + nv.tenNV + "\t" + nv.ngaySinh + "\t" + nv.gioiTinh + "\t" + nv.diaChi + "\t" + nv.soDT + "\t" + nv.loaiNV);
             sw.Close();
         }
-        public void Update(List<HDNhap> list)
+        public void Update(List<NhanVien> list)
         {
             StreamWriter sw = File.CreateText(txtfile);
             for (int i = 0; i < list.Count; ++i)
-                sw.WriteLine(list[i].maHDN + "\t" + list[i].maNV + "\t" + list[i].maNCC + "\t" + list[i].maDT + "\t" + list[i].ngayNhap + "\t" + list[i].soLuong + "\t" + list[i].donGia + "\t" + list[i].tongTien);
+                sw.WriteLine(list[i].maNV + "\t" + list[i].tenNV + "\t" + list[i].ngaySinh + "\t" + list[i].gioiTinh + "\t" + list[i].diaChi + "\t" + list[i].soDT + "\t" + list[i].loaiNV);
             sw.Close();
         }
     }

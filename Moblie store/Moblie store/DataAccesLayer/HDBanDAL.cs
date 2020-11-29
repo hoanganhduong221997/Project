@@ -10,7 +10,7 @@ namespace Moblie_store.DataAccessLayer
 {
     class HDBanDAL : IHDBanDAL
     {
-        private string txtfile = @"E:\Đồ án 1\Moblie_store\Moblie_store\Data\HDBan.txt";
+        private string txtfile = "Data/HDBan.txt";
         public List<HDBan> GetData()
         {
             List<HDBan> list = new List<HDBan>();
@@ -20,9 +20,9 @@ namespace Moblie_store.DataAccessLayer
             {
                 if (s != "")
                 {
-                    s = Moblie_store.Utility.CongCu.CatXau(s);
+                    s = CongCu.CatXau(s);
                     string[] a = s.Split('\t');
-                    list.Add(new HDBan(int.Parse(a[0]), int.Parse(a[1]), int.Parse(a[2]), int.Parse(a[3]), DateTime.Parse(a[4]), int.Parse(a[5]), double.Parse(a[6]), double.Parse(a[7])));
+                    list.Add(new HDBan(int.Parse(a[0]), int.Parse(a[1]), int.Parse(a[2]), int.Parse(a[3]), a[4], int.Parse(a[5]), double.Parse(a[6]), double.Parse(a[7])));
                 }
                 s = sr.ReadLine();
             }
@@ -47,7 +47,7 @@ namespace Moblie_store.DataAccessLayer
                     return 0;
                 else
                 {
-                    tmp = Moblie_store.Utility.CongCu.ChuanHoaXau(tmp);
+                    tmp = CongCu.ChuanHoaXau(tmp);
                     string[] a = tmp.Split('\t');
                     return int.Parse(a[0]);
                 }

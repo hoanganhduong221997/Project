@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Moblie_store.Utillity
+namespace Moblie_store.Utility
 {
     public static class CongCu
     {
@@ -38,15 +38,6 @@ namespace Moblie_store.Utillity
                 s = s.Remove(s.IndexOf("  "), 1);
             s += " ";
             s = s.Substring(0, 1).ToUpper() + s.Substring(1);
-            return s.Trim();
-        }
-        public static string HoaDau_1(string xau)
-        {
-            string s = xau.Trim().ToLower();
-            while (s.IndexOf("  ") > 0)
-                s = s.Remove(s.IndexOf("  "), 1);
-            s += " ";
-            s = s.Substring(0, 2).ToUpper() + s.Substring(2);
             return s.Trim();
         }
     }

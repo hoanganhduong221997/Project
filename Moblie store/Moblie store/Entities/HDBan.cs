@@ -6,41 +6,42 @@ namespace Moblie_store.Entities
 {
     public class HDBan
     {
-        #region các thành phần dữ liệu
         private int MaHDB;
-        private string MaNV;
-        private string MaKH;
-        private DateTime NgayBan;
+        private int MaNV;
+        private int MaKH;
+        private int MaDT;
+        private string NgayBan;
+        private int SoLuong;
+        private double DonGia;
         private double TongTien;
-        #endregion
-        #region các phương thức khởi tạo
+
         public HDBan()
         {
-            MaHDB = 0;
-            MaNV = " ";
-            MaKH = " ";
-            NgayBan = DateTime.Now;
-            TongTien = 0;
         }
-        public HDBan(int mahdb, string manv, string makh, DateTime ngayban, double tongtien)
+        public HDBan(int mahdb, int manv, int makh, int madt, string ngayban, int soluong, double dongia, double tongtien)
         {
             this.MaHDB = mahdb;
             this.MaNV = manv;
             this.MaKH = makh;
+            this.MaDT = madt;
             this.NgayBan = ngayban;
+            this.SoLuong = soluong;
+            this.DonGia = dongia;
             this.TongTien = tongtien;
         }
-        // phương thức sao chép
+        //Phương thức sao chép
         public HDBan(HDBan hdb)
         {
             this.MaHDB = hdb.MaHDB;
             this.MaNV = hdb.MaNV;
             this.MaKH = hdb.MaKH;
+            this.MaDT = hdb.MaDT;
             this.NgayBan = hdb.NgayBan;
+            this.SoLuong = hdb.SoLuong;
+            this.DonGia = hdb.DonGia;
             this.TongTien = hdb.TongTien;
         }
-        #endregion
-        #region Các thuộc tính
+
         public int maHDB
         {
             get
@@ -53,7 +54,7 @@ namespace Moblie_store.Entities
                     MaHDB = value;
             }
         }
-        public string maNV
+        public int maNV
         {
             get
             {
@@ -61,11 +62,11 @@ namespace Moblie_store.Entities
             }
             set
             {
-                if (value != "")
+                if (value > 0)
                     MaNV = value;
             }
         }
-        public string maKH
+        public int maKH
         {
             get
             {
@@ -73,11 +74,23 @@ namespace Moblie_store.Entities
             }
             set
             {
-                if (value != "")
+                if (value > 0)
                     MaKH = value;
             }
         }
-        public DateTime ngayBan
+        public int maDT
+        {
+            get
+            {
+                return MaDT;
+            }
+            set
+            {
+                if (value > 0)
+                    MaDT = value;
+            }
+        }
+        public string ngayBan
         {
             get
             {
@@ -85,21 +98,44 @@ namespace Moblie_store.Entities
             }
             set
             {
-                NgayBan = value;
+                if (value != "")
+                    NgayBan = value;
+            }
+        }
+        public int soLuong
+        {
+            get
+            {
+                return SoLuong;
+            }
+            set
+            {
+                if (value > 0)
+                    SoLuong = value;
+            }
+        }
+        public double donGia
+        {
+            get
+            {
+                return DonGia;
+            }
+            set
+            {
+                if (value > 0)
+                    DonGia = value;
             }
         }
         public double tongTien
         {
             get
             {
-                return TongTien;
+                return donGia * soLuong;
             }
             set
             {
-                if (value > 0)
-                    TongTien = value;
+                TongTien = value;
             }
         }
-        #endregion
     }
 }

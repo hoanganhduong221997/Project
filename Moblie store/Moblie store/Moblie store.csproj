@@ -6,9 +6,4 @@
     <RootNamespace>Moblie_store</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Business\Interface\" />
-    <Folder Include="Presenation\" />
-  </ItemGroup>
-
 </Project>

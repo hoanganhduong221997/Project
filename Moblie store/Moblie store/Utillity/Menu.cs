@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Moblie_store.Utillity
+namespace Moblie_store.Utility
 {
     public abstract class Menu
     {
@@ -23,7 +23,7 @@ namespace Moblie_store.Utillity
         {
             int max = MaxMuc();
             for (int i = 0; i < mn.Length; ++i)
-                mn[i] = Moblie_store.Utility.CongCu.ChuanHoaXau(mn[i], max);
+                mn[i] = CongCu.ChuanHoaXau(mn[i], max);
         }
         public void Writexy(int x, int y, int location, ConsoleColor background_color, ConsoleColor text_color)
         {

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Moblie_store.Presenation;
 
-namespace Moblie_store.Utillity
+namespace Moblie_store.Utility
 {
     public class DangNhap
     {

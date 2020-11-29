@@ -2,25 +2,36 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Moblie_store.Utillity
+namespace Moblie_store.Utility
 {
     public class Node<T>
     {
-        //Cấu trúc dữ liệu của List
         private T info;
         private Node<T> link;
-        //Các phương thức
         public T Info
         {
-            get { return info; }
-            set { info = value; }
+            get
+            {
+                return info;
+            }
+            set
+            {
+                info = value;
+            }
         }
         public Node<T> Link
         {
-            get { return link; }
-            set { link = value; }
+            get
+            {
+                return link;
+            }
+            set
+            {
+                link = value;
+            }
         }
-        public Node() { }
+        public Node()
+        { }
         public Node(T t)
         {
             info = t;
@@ -29,21 +40,27 @@ namespace Moblie_store.Utillity
     }
     public class List<T>
     {
-        private Node<T> l;
-        public Node<T> L
+        private Node<T> head;
+        public Node<T> Head
         {
-            get { return l; }
-            set { l = value; }
+            get
+            {
+                return head;
+            }
+            set
+            {
+                head = value;
+            }
         }
         public List()
         {
-            l = null;
+            head = null;
         }
         public T this[int i]
         {
             get
             {
-                Node<T> tg = l;
+                Node<T> tg = head;
                 int d = 0;
                 while (tg.Link != null && d != i)
                 {
@@ -53,15 +70,13 @@ namespace Moblie_store.Utillity
                 return tg.Info;
             }
         }
-
-
         public int Count
         {
             get
             {
-
-                if (l == null) return 0;
-                Node<T> tg = l;
+                if (head == null)
+                    return 0;
+                Node<T> tg = head;
                 int d = 0;
                 while (tg.Link != null)
                 {
@@ -70,34 +85,43 @@ namespace Moblie_store.Utillity
                 }
                 return d + 1;
             }
-
         }
         public void Add(T x)
         {
             Node<T> tg = new Node<T>(x);
-            if (l == null) l = tg;
+            if (head == null)
+                head = tg;
             else
             {
-                Node<T> p = l;
-                while (p.Link != null) p = p.Link;
+                Node<T> p = head;
+                while (p.Link != null)
+                    p = p.Link;
                 p.Link = tg;
             }
         }
         public void Add(T x, int i)
         {
             Node<T> tg = new Node<T>(x);
-            if (Count == 0) l = tg;
+            if (Count == 0)
+                head = tg;
             else if (i >= 0 && i <= Count - 1)
             {
-                Node<T> p = l; int d = 0;
+                Node<T> p = head;
+                int d = 0;
                 while (p.Link != null && d != i)
                 {
-                    p = p.Link; d++;
+                    p = p.Link;
+                    d++;
                 }
-                if (p == l) { tg.Link = l; l = tg; }
+                if (p == head)
+                {
+                    tg.Link = head;
+                    head = tg;
+                }
                 else
                 {
-                    Node<T> vt = l; Node<T> tvt = vt;
+                    Node<T> vt = head;
+                    Node<T> tvt = vt;
                     while (vt != p)
                     {
                         tvt = vt;
@@ -108,30 +132,34 @@ namespace Moblie_store.Utillity
                 }
             }
         }
-
         public void RemoveAt(int i)
         {
-            if (Count == 0) return;
+            if (Count == 0)
+                return;
             else if (i >= 0 && i <= Count - 1)
             {
-                Node<T> p = l; int d = 0;
+                Node<T> p = head;
+                int d = 0;
                 while (p.Link != null && d != i)
                 {
-                    p = p.Link; d++;
+                    p = p.Link;
+                    d++;
                 }
-                if (l.Link == null) l = null;//Danh sach co mot phan tu
-                else if (p == l) //Phan tu can xoa o dau danh sach                
-                    l = l.Link;
-                else if (p.Link == null)//Pha tu can xoa o cuoi danh sach
+                if (head.Link == null)
+                    head = null;
+                else if (p == head)
+                    head = head.Link;
+                else if (p.Link == null)
                 {
-                    Node<T> tg = l;
-                    while (tg.Link.Link != null) tg = tg.Link;
+                    Node<T> tg = head;
+                    while (tg.Link.Link != null)
+                        tg = tg.Link;
                     tg.Link = null;
                 }
-                else //Phan tu can xoa o giua danh sach
+                else
                 {
-
-                    Node<T> vt = l; Node<T> tvt = vt;
+                    Node<T> vt = head;
+                    Node<T> tvt = vt;
                     while (vt != p)
                     {
                         tvt = vt;

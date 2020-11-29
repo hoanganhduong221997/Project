@@ -6,14 +6,14 @@ using Moblie_store.Utility;
 using Moblie_store.Entities;
 using Moblie_store.DataAccessLayer.Interface;
 
-namespace ComputerStore.DataAccessLayer
+namespace Moblie_store.DataAccessLayer
 {
-    class HDNhapDAL : IHDNhapDAL
+    class KhachHangDAL : IKhachHangDAL
     {
-        private string txtfile = "Data/HDNhap.txt";
-        public List<HDNhap> GetData()
+        private string txtfile = "Data/KhachHang.txt";
+        public List<KhachHang> GetData()
         {
-            List<HDNhap> list = new List<HDNhap>();
+            List<KhachHang> list = new List<KhachHang>();
             StreamReader sr = File.OpenText(txtfile);
             string s = sr.ReadLine();
             while (s != null)
@@ -22,14 +22,14 @@ namespace ComputerStore.DataAccessLayer
                 {
                     s = CongCu.CatXau(s);
                     string[] a = s.Split('\t');
-                    list.Add(new HDNhap(int.Parse(a[0]), int.Parse(a[1]), int.Parse(a[2]), int.Parse(a[3]), a[4], int.Parse(a[5]), double.Parse(a[6]), double.Parse(a[7])));
+                    list.Add(new KhachHang(int.Parse(a[0]), a[1], a[2], a[3]));
                 }
                 s = sr.ReadLine();
             }
             sr.Close();
             return list;
         }
-        public int maHDN
+        public int maKH
         {
             get
             {
@@ -53,19 +53,19 @@ namespace ComputerStore.DataAccessLayer
                 }
             }
         }
-        public void Insert(HDNhap hdn)
+        public void Insert(KhachHang kh)
         {
-            int mahdn = maHDN + 1;
+            int makh = maKH + 1;
             StreamWriter sw = File.AppendText(txtfile);
             sw.WriteLine();
-            sw.Write(mahdn + "\t" + hdn.maNV + "\t" + hdn.maNCC + "\t" + hdn.maDT + "\t" + hdn.ngayNhap + "\t" + hdn.soLuong + "\t" + hdn.donGia + "\t" + hdn.tongTien);
+            sw.Write(makh + "\t" + kh.tenKH + "\t" + kh.diaChi + "\t" + kh.soDT);
             sw.Close();
         }
-        public void Update(List<HDNhap> list)
+        public void Update(List<KhachHang> list)
         {
             StreamWriter sw = File.CreateText(txtfile);
             for (int i = 0; i < list.Count; ++i)
-                sw.WriteLine(list[i].maHDN + "\t" + list[i].maNV + "\t" + list[i].maNCC + "\t" + list[i].maDT + "\t" + list[i].ngayNhap + "\t" + list[i].soLuong + "\t" + list[i].donGia + "\t" + list[i].tongTien);
+                sw.WriteLine(list[i].maKH + "\t" + list[i].tenKH + "\t" + list[i].diaChi + "\t" + list[i].soDT);
             sw.Close();
         }
     }

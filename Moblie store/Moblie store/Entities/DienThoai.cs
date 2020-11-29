@@ -1,27 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Moblie_store.Entities
 {
     public class DienThoai
     {
-        #region Các thành phần dữ liệu
         private int MaDT;
-        private int MaLM;
         private string TenDT;
         private int MaNCC;
         private int SLNhap;
         private int SLCon;
-        #endregion
-        #region Các phương thức khởi tạo
+
         public DienThoai()
         {
         }
-        public DienThoai(int madt, int malm, string tendt, int mancc, int sln, int slc)
+        public DienThoai(int madt, string tendt, int mancc, int sln, int slc)
         {
             this.MaDT = madt;
-            this.MaLM = malm;
             this.TenDT = tendt;
             this.MaNCC = mancc;
             this.SLNhap = sln;
@@ -31,14 +28,12 @@ namespace Moblie_store.Entities
         public DienThoai(DienThoai dt)
         {
             this.MaDT = dt.MaDT;
-            this.MaLM = dt.MaLM;
             this.TenDT = dt.TenDT;
             this.MaNCC = dt.MaNCC;
             this.SLNhap = dt.SLNhap;
             this.SLCon = dt.SLCon;
         }
-        #endregion
-        #region Các thuộc tính
+
         public int maDT
         {
             get
@@ -49,18 +44,6 @@ namespace Moblie_store.Entities
             {
                 if (value > 0)
                     MaDT = value;
-            }
-        }
-        public int maLM
-        {
-            get
-            {
-                return MaLM;
-            }
-            set
-            {
-                if (value > 0)
-                    MaLM = value;
             }
         }
         public string tenDT
@@ -111,6 +94,5 @@ namespace Moblie_store.Entities
                     SLCon = value;
             }
         }
-        #endregion
     }
 }
