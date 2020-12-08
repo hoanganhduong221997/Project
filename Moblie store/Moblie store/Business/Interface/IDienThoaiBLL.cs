@@ -14,6 +14,6 @@ namespace Moblie_store.Business.Interface
         void XoaDienThoai(int madt);
         void SuaDienThoai(DienThoai dt);
         List<DienThoai> TimDienThoai(DienThoai dt);
-        DienThoai LaydienThoai(int madt);
+        DienThoai LayDienThoai(int madt);
     }
 }

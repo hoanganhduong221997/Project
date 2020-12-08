@@ -6,7 +6,7 @@ using Moblie_store.Utility;
 using Moblie_store.Entities;
 using Moblie_store.DataAccessLayer.Interface;
 
-namespace ComputerStore.DataAccessLayer
+namespace Moblie_store.DataAccessLayer
 {
     class HDNhapDAL : IHDNhapDAL
     {
