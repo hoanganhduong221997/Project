@@ -71,11 +71,6 @@ namespace Moblie_store.Presenation
             } while (true);
         }
 
-        private void Hien(int v1, int v2, List<DienThoai> list, int v3, int v4)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Sua()
         {
             IDienThoaiBLL dienThoai = new DienThoaiBLL();
@@ -114,7 +109,7 @@ namespace Moblie_store.Presenation
             {
                 tenmay = IO.ReadString(53, 4);
                 if (tenmay == null)
-                    IO.Writexy("Nhập lại tên máy tính...", 5, 8, ConsoleColor.Black, ConsoleColor.White);
+                    IO.Writexy("Nhập lại tên điện thoại...", 5, 8, ConsoleColor.Black, ConsoleColor.White);
                 else if (tenmay != dt.tenDT && tenmay != null)
                     dt.tenDT = CongCu.HoaDau(tenmay);
             } while (tenmay == null);
@@ -257,7 +252,7 @@ namespace Moblie_store.Presenation
                 } while (madt <= 0);
             } while (true);
         }
-        public void Hien(int xx, int yy, List<D> list, int n, int type)
+        public void Hien(int xx, int yy, List<DienThoai> list, int n, int type)
         {
             int head = 0;
             int curpage = 1;
@@ -337,9 +332,9 @@ namespace Moblie_store.Presenation
             mndt.HienTheoPhimTat(15, 6, ConsoleColor.Black, ConsoleColor.White);
             Console.ReadKey();
         }
-        public class MenuMT : Menu
+        public class MenuDT : Menu
         {
-            public MenuMT(string[] mn) : base(mn)
+            public MenuDT(string[] mn) : base(mn)
             {
             }
             public override void ThucHien(int location)
@@ -373,8 +368,8 @@ namespace Moblie_store.Presenation
             Console.WindowHeight = Console.LargestWindowHeight;
             string[] mn =
             {
-                " F1.Tìm kiếm máy tính theo mã ",
-                " F2.Tìm kiếm máy tính theo tên ",
+                " F1.Tìm kiếm điện thoại theo mã ",
+                " F2.Tìm kiếm điện thoại theo tên ",
                 " F3.Quay lại "
             };
             Console.BackgroundColor = ConsoleColor.Black;
